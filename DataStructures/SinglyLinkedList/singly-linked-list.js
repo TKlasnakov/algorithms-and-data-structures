@@ -5,7 +5,7 @@ class Node {
     }
 }
 
-class SinlgyLinkedList {
+class SinglyLinkedList {
     constructor() {
         this.head = null;
         this.tail = null;
@@ -27,7 +27,7 @@ class SinlgyLinkedList {
     }
 
     pop() {
-        if(!this.head)  return undefined;
+        if(!this.head)  return null;
         let node = this.head;
         let newTail;
         if(this.length === 1) {
@@ -51,7 +51,7 @@ class SinlgyLinkedList {
     }
 
     shift() {
-        if(!this.head) return undefined;
+        if(!this.head) return null;
         let node = this.head;
         this.head = node.next;
         if(this.length === 1) {
@@ -77,12 +77,12 @@ class SinlgyLinkedList {
     }
 
     get(index) {
-        if(index > this.length || index < 0) return undefined;
+        if(index > this.length || index < 0) return null;
         let currentItem = this.head;
         for (let i = 0; i !== index; i++) {
             currentItem = currentItem.next;
         }
-        return currentItem || undefined;
+        return currentItem || null;
     }
 
     set(index, value) {
@@ -107,7 +107,7 @@ class SinlgyLinkedList {
     }
 
     remove(index) {
-        if(index > this.length || index < 0) return undefined;
+        if(index > this.length || index < 0) return null;
         if(index === 0) return this.shift();
         if(index === this.length - 1) return this.pop();
 
@@ -118,14 +118,3 @@ class SinlgyLinkedList {
         return removedNode
     }
 }
-
-let list = new SinlgyLinkedList();
-
-console.log(list.push(12));
-console.log(list.push(13));
-console.log(list.push(14));
-console.log(list.push(15));
-console.log(list.push(16));
-console.log(list.get(4));
-console.log(list.remove(0));
-console.log(list);

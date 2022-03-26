@@ -13,19 +13,3 @@ class DepthFirstSearchPreOrder {
         return data;
     }
 }
-
-
-const bst = new tree();
-bst.insert(10);
-bst.insert(33);
-bst.insert(12);
-bst.insert(24);
-bst.insert(11);
-bst.insert(6);
-bst.insert(8);
-bst.insert(4);
-bst.insert(5);
-bst.insert(9);
-const traverse = new DepthFirstSearchPreOrder();
-console.log(traverse.traverse(bst));
-debugger;
