@@ -1,33 +1,20 @@
-function minSubArrayLen(arr, number) {
-    let sum = 0;
+function findLongestSubstring(substr) {
     let i = 0;
     let j = 0;
-    let subArrayLength = Infinity;
+    let visited = {}
+    let longestSubstr = 0;
 
-    while (i < arr.length) {
-        sum += arr[i];
-        if(sum >= number) {
-            if(subArrayLength > i - j) {
-                subArrayLength = i - j;
-                sum = 0;
-            }
-            j = i
+    while (i < substr.length) {
+        if(visited[substr[i]]) {
+            longestSubstr = Math.max(Object.keys(visited).length, longestSubstr);
+            delete visited[substr[j]];
+            j++;
+        } else {
+            visited[substr[i]] = substr[i];
+            i++;
         }
-        i++
-
+        longestSubstr = Math.max(Object.keys(visited).length, longestSubstr);
     }
 
-    if(subArrayLength === Infinity) {
-        subArrayLength = 0;
-    }
-
-    return subArrayLength
+    return longestSubstr;
 }
-
-console.log(minSubArrayLen([2,3,1,2,4,3], 7));
-console.log(minSubArrayLen([2, 1, 6, 5, 4], 9));
-console.log(minSubArrayLen([3,1,7,11,2,9,8,21,62,33,19], 52));
-console.log(minSubArrayLen([1,4,16,22,5,7,8,9,10], 39));
-console.log(minSubArrayLen([1,4,16,22,5,7,8,9,10], 55));
-console.log(minSubArrayLen([4, 3, 8, 1, 2, 3], 11));
-console.log(minSubArrayLen([1,4,16,22,5,7,8,9,10], 95));
