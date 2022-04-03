@@ -153,14 +153,4 @@ class DoublyLinkedList {
 }
 
 list = new DoublyLinkedList();
-list.unshift(7);
-list.unshift(6);
-list.unshift(5);
-list.unshift(4);
-list.unshift(3);
-list.unshift(2);
-list.unshift(1);
-list.unshift(0);
-console.log(list.get(3));
-console.log(list);
 
